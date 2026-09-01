@@ -1,0 +1,1010 @@
+{
+  "ssrPage": 0,
+  "ssrPageSize": 40,
+  "ssrTotalCount": 1632,
+  "ssrIsLastPage": false,
+  "ssrHits": [
+    {
+      "id": "simplr___alameda-health-system-careers___2175450",
+      "board_token": "alameda-health-system-careers",
+      "source": "simplr",
+      "apply_url": "https://alameda-health-system-careers.hctsportals.com/jobs/2175450",
+      "source_and_board_token": "simplr_alameda-health-system-careers",
+      "job_information": {
+        "title": "Clinical Research Associate",
+        "job_title_raw": "Clinical Research Associate",
+        "viewedByUsers": [
+          "BGUaM3tq9fW2NBU1Rhtn4Z8wQhi1",
+          "o4APR8V8kZOBmiktzNBQTOrLXxc2",
+          "fExc9vlx4ZWVhrV71mY30HO4cVZ2",
+          "sWZRuYOj8DaeXU365iGT3WKLuyH2",
+          "j8xqv3TwGmaY5kWUA99kMbzUU1h1",
+          "UE8d7bpjkgPdTFN4e32bBljqnBg2",
+          "lEcEWmR9wyN6rNPDESQKysEuHdG3",
+          "zJ4RJ0zz2FaGrDB4SCjNeG9rQSt1",
+          "CbuydYMDcjYHZB4BoMYvb87qhTa2",
+          "uOAJiYvBTFVY0EhmHywAWViMqF72",
+          "IoKkDRzKNFMmmijZ0nrSaojKQzs1",
+          "XrqmV46nuwd5LVyyyZsDpl7syMj1",
+          "JnKs00ACcIV6ontHnXb0XRB7ek82",
+          "Ke5daHCAbHYLlxmZ6FCTKHgJ6qt1",
+          "4xFtxWUXkRQDTgqeHFbwEtXFf452"
+        ],
+        "num_views": 15,
+        "appliedFromUsers": [
+          "fExc9vlx4ZWVhrV71mY30HO4cVZ2",
+          "sWZRuYOj8DaeXU365iGT3WKLuyH2",
+          "XrqmV46nuwd5LVyyyZsDpl7syMj1"
+        ],
+        "num_applies": 3
+      },
+      "v5_processed_job_data": {
+        "core_job_title": "Clinical Research Associate",
+        "requirements_summary": "Bachelor’s degree in health, human sciences, biology, or related field; approximately 2 years of clinical research experience; BLS certification; knowledge of regulations, clinical trials, and research administration.",
+        "technical_tools": [
+          "Institutional Review Board (IRB)",
+          "Food and Drug Administration (FDA)",
+          "JCAHO",
+          "Title 22",
+          "HCFA",
+          "OSHA"
+        ],
+        "licenses_or_certifications": [],
+        "associates_degree_requirement": "Not Mentioned",
+        "associates_degree_fields_of_study": [],
+        "bachelors_degree_requirement": "Required",
+        "bachelors_degree_fields_of_study": [
+          "Health Sciences",
+          "Human Sciences",
+          "Biology"
+        ],
+        "masters_degree_requirement": "Not Mentioned",
+        "masters_degree_fields_of_study": [],
+        "doctorate_degree_requirement": "Not Mentioned",
+        "doctorate_degree_fields_of_study": [],
+        "licenses_or_certifications_not_mentioned": true,
+        "min_industry_and_role_yoe": 2,
+        "401k_matching": false,
+        "is_min_industry_and_role_yoe_not_mentioned": false,
+        "min_management_and_leadership_yoe": null,
+        "is_min_management_and_leadership_yoe_not_mentioned": true,
+        "job_category": "Research and Development (R&D)",
+        "role_activities": [
+          "coordinating trials",
+          "managing regulations",
+          "supervising personnel"
+        ],
+        "commitment": [
+          "Temporary"
+        ],
+        "role_type": "People Manager",
+        "seniority_level": "Entry Level",
+        "workplace_countries": [
+          "US"
+        ],
+        "boundless_workplace_states": [],
+        "boundless_workplace_countries": [],
+        "boundless_workplace_continents": [],
+        "workplace_continents": [
+          "North America"
+        ],
+        "workplace_states": [
+          "California, US"
+        ],
+        "workplace_cities": [
+          "Oakland, California, US"
+        ],
+        "workplace_counties": [
+          "Alameda County, California, US"
+        ],
+        "workplace_type": "Onsite",
+        "workplace_physical_environment": "Customer-Facing",
+        "oral_communication_level": "High",
+        "physical_labor_intensity": "Low",
+        "physical_position": "Standing",
+        "computer_usage": "High",
+        "cognitive_demand": "High",
+        "air_travel_requirement": "None",
+        "land_travel_requirement": "None",
+        "morning_shift_work": "Required",
+        "evening_shift_work": "Not Indicated",
+        "overnight_work": "Not Indicated",
+        "formatted_workplace_location": "Oakland, California, United States",
+        "on_call_requirement": "None",
+        "weekend_availability_required": false,
+        "holiday_availability_required": false,
+        "generous_paid_time_off": false,
+        "four_day_work_week": false,
+        "overtime_required": false,
+        "is_workplace_worldwide_ok": false,
+        "language_requirements": [
+          "English"
+        ],
+        "num_language_requirements": 1,
+        "number_of_workplace_cities": 1,
+        "number_of_workplace_counties": 1,
+        "number_of_workplace_states": 1,
+        "number_of_workplace_countries": 1,
+        "number_of_workplace_continents": 1,
+        "yearly_max_compensation": 125132.79999999999,
+        "yearly_min_compensation": 102918.4,
+        "monthly_max_compensation": 10427.733333333332,
+        "monthly_min_compensation": 8576.533333333333,
+        "weekly_max_compensation": 2406.3999999999996,
+        "weekly_min_compensation": 1979.1999999999998,
+        "hourly_max_compensation": 60.16,
+        "hourly_min_compensation": 49.48,
+        "bi-weekly_min_compensation": 3958.3999999999996,
+        "bi-weekly_max_compensation": 4812.799999999999,
+        "daily_min_compensation": 395.84,
+        "daily_max_compensation": 481.28,
+        "estimated_publish_date": "2026-08-12T19:17:30.047Z",
+        "estimated_publish_date_millis": 1786562250047,
+        "fair_chance": false,
+        "visa_sponsorship": false,
+        "relocation_assistance": false,
+        "military_veterans": false,
+        "tuition_reimbursement": false,
+        "retirement_plan": false,
+        "generous_parental_leave": false,
+        "is_high_school_required": true,
+        "is_driver_license_required": false,
+        "is_compensation_transparent": true,
+        "listed_compensation_currency": "USD",
+        "listed_compensation_frequency": "Hourly",
+        "security_clearance": "None",
+        "position_employer_type": "Internal Position",
+        "company_name": "Alameda Health System",
+        "company_website": "alamedahealthsystem.org",
+        "company_sector_and_industry": "Healthcare",
+        "company_activities": [
+          "healthcare services",
+          "medical research"
+        ],
+        "company_tagline": "A public healthcare system providing medical care and supporting clinical research."
+      },
+      "enriched_company_data": {
+        "enriched_at": "2026-03-11T15:55:04.317Z",
+        "status": "VALID_COMPANY",
+        "name": "Alameda Health System",
+        "homepage_uri": "alamedahealthsystem.org",
+        "hq_country": "US",
+        "parent_company": null,
+        "subsidiaries": [
+          "Highland Hospital",
+          "Alameda Hospital",
+          "San Leandro Hospital",
+          "Fairmont Hospital",
+          "John George Psychiatric Hospital"
+        ],
+        "industries": [
+          "Healthcare",
+          "Hospital & Health Care"
+        ],
+        "activities": [
+          "Hospital Operations",
+          "Outpatient Medical Services",
+          "Emergency Trauma Care",
+          "Behavioral Health Services",
+          "Clinical Medical Education"
+        ],
+        "nb_employees": 4500,
+        "year_founded": 1864,
+        "tagline": "Provides integrated public healthcare services and clinical medical training.",
+        "organization_type": "Government",
+        "latest_funding_investors": null,
+        "latest_funding_type": null,
+        "latest_funding_year": null,
+        "latest_funding_amount": null,
+        "stock_exchange": null,
+        "stock_symbol": null
+      },
+      "_geoloc": [
+        {
+          "lat": 37.8044,
+          "lon": -122.2711
+        }
+      ],
+      "original_source_id": "2175450",
+      "requisition_id": "94nq7vnoee3nqdp5",
+      "collapse_key": "eec76752cc95569eb319692da39efea3bd83efd7b49b3546031ee124e38d28dd",
+      "is_expired": false,
+      "objectID": "simplr___alameda-health-system-careers___2175450"
+    },
+    {
+      "id": "peopleadmin___unmc_com___99603",
+      "board_token": "unmc_com",
+      "source": "peopleadmin",
+      "apply_url": "https://unmc.peopleadmin.com/postings/99603",
+      "source_and_board_token": "peopleadmin_unmc_com",
+      "job_information": {
+        "title": "Clinical Research Associate II",
+        "job_title_raw": "Clinical Research Associate II",
+        "viewedByUsers": [
+          "M9ETe8RBuLVRo4mdWPiJ27R1ryj1",
+          "EORNF0DePnbb0R5mw5LZMG1nKK72",
+          "UE8d7bpjkgPdTFN4e32bBljqnBg2",
+          "PSB4mZOoDYXNcwpkbK9b4U3c0K22",
+          "7nZxdigWh8ZaTnvWHLbAgf2dzh12",
+          "0JS2wfFHz5UOzzmQ7aPxb4dKBSR2",
+          "aMYKfyfKAYgUoLKtJwpKjHV8GzR2",
+          "QNSRVvWHNwPgKjximepUeh01Fi43",
+          "svxJGbqKmRZrFwGxkGRi3knKgae2",
+          "NO7aQIEY8caL2ojjCTFPB8o7m8G3",
+          "2sZ6YsMWXrbna6cOLnbWdjpaulH3",
+          "PTWbepYZaqWBbCVePkuYMQnxl792",
+          "6Pl4TO6arHeoTbCuZMov6CqpBRq1",
+          "S3fa3IHXsjRTkDSSx0kS75CslXn1",
+          "4xFtxWUXkRQDTgqeHFbwEtXFf452",
+          "Sz4ArQfLJrOyrh9BdqLyZT01GYi2",
+          "ssD59WlqkzLKEzovDYdBWhVtc713",
+          "0aiLPlnXGJVw5277tihm8sur8y83",
+          "4KmqQY1KGETx0jqDR8MTxuylPtc2",
+          "GYcaOyXNb8bcuZH18Oqma2eBbQU2",
+          "UKp6kZDKmBWdyDQdQNg4TLBX1KB2",
+          "qUyg4aXbQxNyyyQjlnvrLL8hmFI2",
+          "IoKkDRzKNFMmmijZ0nrSaojKQzs1",
+          "fExc9vlx4ZWVhrV71mY30HO4cVZ2",
+          "JnKs00ACcIV6ontHnXb0XRB7ek82",
+          "ZQtGu2RhSKbNBI1UqiRbK2aaIar2",
+          "3YGqabsISwM34JCZCdIy764v4y42",
+          "2Qd23MxsWzN3udI2QtdUooe8nIz1",
+          "Ke5daHCAbHYLlxmZ6FCTKHgJ6qt1"
+        ],
+        "num_views": 29,
+        "appliedFromUsers": [
+          "M9ETe8RBuLVRo4mdWPiJ27R1ryj1",
+          "7nZxdigWh8ZaTnvWHLbAgf2dzh12",
+          "0JS2wfFHz5UOzzmQ7aPxb4dKBSR2",
+          "QNSRVvWHNwPgKjximepUeh01Fi43",
+          "svxJGbqKmRZrFwGxkGRi3knKgae2",
+          "PTWbepYZaqWBbCVePkuYMQnxl792",
+          "6Pl4TO6arHeoTbCuZMov6CqpBRq1",
+          "0aiLPlnXGJVw5277tihm8sur8y83",
+          "4KmqQY1KGETx0jqDR8MTxuylPtc2",
+          "fExc9vlx4ZWVhrV71mY30HO4cVZ2",
+          "ZQtGu2RhSKbNBI1UqiRbK2aaIar2",
+          "2Qd23MxsWzN3udI2QtdUooe8nIz1"
+        ],
+        "num_applies": 12
+      },
+      "v5_processed_job_data": {
+        "core_job_title": "Clinical Research Associate",
+        "requirements_summary": "Associate's degree (or equivalent), 2 years healthcare/lab/clinical research experience, proficiency with Microsoft Office; supports clinical trial coordination and implementation.",
+        "technical_tools": [
+          "Microsoft Excel",
+          "Microsoft Word",
+          "Microsoft PowerPoint",
+          "Microsoft Outlook"
+        ],
+        "licenses_or_certifications": [],
+        "associates_degree_requirement": "Required",
+        "associates_degree_fields_of_study": [
+          "Healthcare",
+          "Science",
+          "Related field"
+        ],
+        "bachelors_degree_requirement": "Not Mentioned",
+        "bachelors_degree_fields_of_study": [],
+        "masters_degree_requirement": "Not Mentioned",
+        "masters_degree_fields_of_study": [],
+        "doctorate_degree_requirement": "Not Mentioned",
+        "doctorate_degree_fields_of_study": [],
+        "licenses_or_certifications_not_mentioned": true,
+        "min_industry_and_role_yoe": 2,
+        "401k_matching": false,
+        "is_min_industry_and_role_yoe_not_mentioned": false,
+        "min_management_and_leadership_yoe": null,
+        "is_min_management_and_leadership_yoe_not_mentioned": true,
+        "job_category": "Research and Development (R&D)",
+        "role_activities": [
+          "assisting coordinators",
+          "coordinating trials",
+          "providing support"
+        ],
+        "commitment": [
+          "Full Time"
+        ],
+        "role_type": "Individual Contributor",
+        "seniority_level": "Entry Level",
+        "workplace_countries": [
+          "US"
+        ],
+        "boundless_workplace_states": [],
+        "boundless_workplace_countries": [],
+        "boundless_workplace_continents": [],
+        "workplace_continents": [
+          "North America"
+        ],
+        "workplace_states": [
+          "Nebraska, US"
+        ],
+        "workplace_cities": [
+          "Omaha, Nebraska, US"
+        ],
+        "workplace_counties": [
+          "Douglas County, Nebraska, US"
+        ],
+        "workplace_type": "Hybrid",
+        "workplace_physical_environment": "Office",
+        "oral_communication_level": "High",
+        "physical_labor_intensity": "Low",
+        "physical_position": "Sitting",
+        "computer_usage": "High",
+        "cognitive_demand": "High",
+        "air_travel_requirement": "None",
+        "land_travel_requirement": "None",
+        "morning_shift_work": "Required",
+        "evening_shift_work": "Not Indicated",
+        "overnight_work": "Not Indicated",
+        "formatted_workplace_location": "Omaha, Nebraska, United States",
+        "on_call_requirement": "None",
+        "weekend_availability_required": true,
+        "holiday_availability_required": false,
+        "generous_paid_time_off": false,
+        "four_day_work_week": false,
+        "overtime_required": false,
+        "is_workplace_worldwide_ok": false,
+        "language_requirements": [
+          "English"
+        ],
+        "num_language_requirements": 1,
+        "number_of_workplace_cities": 1,
+        "number_of_workplace_counties": 1,
+        "number_of_workplace_states": 1,
+        "number_of_workplace_countries": 1,
+        "number_of_workplace_continents": 1,
+        "yearly_max_compensation": 65700,
+        "yearly_min_compensation": 43800,
+        "monthly_max_compensation": 5475,
+        "monthly_min_compensation": 3650,
+        "weekly_max_compensation": 1263.4615384615386,
+        "weekly_min_compensation": 842.3076923076923,
+        "hourly_max_compensation": 31.58653846153846,
+        "hourly_min_compensation": 21.057692307692307,
+        "bi-weekly_min_compensation": 1684.6153846153845,
+        "bi-weekly_max_compensation": 2526.923076923077,
+        "daily_min_compensation": 168.46153846153845,
+        "daily_max_compensation": 252.69230769230768,
+        "estimated_publish_date": "2026-08-03T15:48:02.000Z",
+        "estimated_publish_date_millis": 1785772082000,
+        "fair_chance": false,
+        "visa_sponsorship": false,
+        "relocation_assistance": false,
+        "military_veterans": false,
+        "tuition_reimbursement": false,
+        "retirement_plan": false,
+        "generous_parental_leave": false,
+        "is_high_school_required": true,
+        "is_driver_license_required": false,
+        "is_compensation_transparent": true,
+        "listed_compensation_currency": "USD",
+        "listed_compensation_frequency": "Yearly",
+        "security_clearance": "None",
+        "position_employer_type": "Internal Position",
+        "company_name": "unmc",
+        "company_website": null,
+        "company_sector_and_industry": "Healthcare",
+        "company_activities": [
+          "clinical research",
+          "medical education"
+        ],
+        "company_tagline": "An academic medical center conducting clinical research and education."
+      },
+      "enriched_company_data": {
+        "enriched_at": "2026-05-20T06:44:15.773Z",
+        "status": "VALID_COMPANY",
+        "name": "University of Nebraska Medical Center",
+        "homepage_uri": "unmc.edu",
+        "hq_country": "US",
+        "parent_company": null,
+        "subsidiaries": null,
+        "industries": [
+          "Education",
+          "Healthcare"
+        ],
+        "activities": [
+          "Medical education",
+          "Clinical patient care",
+          "Academic research",
+          "Public health services",
+          "Clinical training"
+        ],
+        "nb_employees": 5000,
+        "year_founded": 1869,
+        "tagline": "Public academic health science center providing education and healthcare.",
+        "organization_type": "Government",
+        "latest_funding_investors": null,
+        "latest_funding_type": null,
+        "latest_funding_year": null,
+        "latest_funding_amount": null,
+        "stock_exchange": null,
+        "stock_symbol": null
+      },
+      "_geoloc": [
+        {
+          "lat": 41.2565,
+          "lon": -95.9345
+        }
+      ],
+      "original_source_id": "99603",
+      "requisition_id": "94b4jtcrv7o91dqg",
+      "collapse_key": "bd3b4e266086d501e68313b9c95b0a5b222e64d03fbbf197723f1f1f758b7a0c",
+      "is_expired": false,
+      "objectID": "peopleadmin___unmc_com___99603"
+    },
+    {
+      "id": "peopleadmin___unmc_com___98308",
+      "board_token": "unmc_com",
+      "source": "peopleadmin",
+      "apply_url": "https://unmc.peopleadmin.com/postings/98308",
+      "source_and_board_token": "peopleadmin_unmc_com",
+      "job_information": {
+        "title": "Clinical Research Associate I",
+        "job_title_raw": "Clinical Research Associate I",
+        "viewedByUsers": [
+          "EsScVRYFfJRZbVgDZjbKYq1Stdn2",
+          "3YGqabsISwM34JCZCdIy764v4y42",
+          "rAnh46ISiYZy1Hp3IcyjLJvSW0K3",
+          "6Fl9DSzzEHYg1VX1ImawwukzS332"
+        ],
+        "savedFromUsers": [
+          "EsScVRYFfJRZbVgDZjbKYq1Stdn2"
+        ],
+        "num_views": 4,
+        "num_saves": 1,
+        "appliedFromUsers": [
+          "rAnh46ISiYZy1Hp3IcyjLJvSW0K3"
+        ],
+        "num_applies": 1
+      },
+      "v5_processed_job_data": {
+        "core_job_title": "Clinical Research Associate",
+        "requirements_summary": "High school diploma; 3 years healthcare/clinical research experience; proficiency in MS Office; strong organization and communication; regulatory/IRB knowledge.",
+        "technical_tools": [
+          "Microsoft Office (Excel, Word, PowerPoint, Outlook)",
+          "SAP",
+          "Electronic Health Records"
+        ],
+        "licenses_or_certifications": [],
+        "associates_degree_requirement": "Not Mentioned",
+        "associates_degree_fields_of_study": [],
+        "bachelors_degree_requirement": "Not Mentioned",
+        "bachelors_degree_fields_of_study": [],
+        "masters_degree_requirement": "Not Mentioned",
+        "masters_degree_fields_of_study": [],
+        "doctorate_degree_requirement": "Not Mentioned",
+        "doctorate_degree_fields_of_study": [],
+        "licenses_or_certifications_not_mentioned": true,
+        "min_industry_and_role_yoe": 3,
+        "401k_matching": false,
+        "is_min_industry_and_role_yoe_not_mentioned": false,
+        "min_management_and_leadership_yoe": null,
+        "is_min_management_and_leadership_yoe_not_mentioned": true,
+        "job_category": "Research and Development (R&D)",
+        "role_activities": [
+          "process IRB",
+          "maintain records",
+          "coordinate communications"
+        ],
+        "commitment": [
+          "Full Time"
+        ],
+        "role_type": "Individual Contributor",
+        "seniority_level": "Mid Level",
+        "workplace_countries": [
+          "US"
+        ],
+        "boundless_workplace_states": [],
+        "boundless_workplace_countries": [],
+        "boundless_workplace_continents": [],
+        "workplace_continents": [
+          "North America"
+        ],
+        "workplace_states": [
+          "Nebraska, US"
+        ],
+        "workplace_cities": [
+          "Omaha, Nebraska, US"
+        ],
+        "workplace_counties": [
+          "Douglas County, Nebraska, US"
+        ],
+        "workplace_type": "Onsite",
+        "workplace_physical_environment": "Office",
+        "oral_communication_level": "High",
+        "physical_labor_intensity": "Low",
+        "physical_position": "Sitting",
+        "computer_usage": "High",
+        "cognitive_demand": "High",
+        "air_travel_requirement": "None",
+        "land_travel_requirement": "None",
+        "morning_shift_work": "Not Indicated",
+        "evening_shift_work": "Not Indicated",
+        "overnight_work": "Not Indicated",
+        "formatted_workplace_location": "Omaha, Nebraska, United States",
+        "on_call_requirement": "None",
+        "weekend_availability_required": false,
+        "holiday_availability_required": false,
+        "generous_paid_time_off": false,
+        "four_day_work_week": false,
+        "overtime_required": false,
+        "is_workplace_worldwide_ok": false,
+        "language_requirements": [
+          "English"
+        ],
+        "num_language_requirements": 1,
+        "number_of_workplace_cities": 1,
+        "number_of_workplace_counties": 1,
+        "number_of_workplace_states": 1,
+        "number_of_workplace_countries": 1,
+        "number_of_workplace_continents": 1,
+        "yearly_max_compensation": 59300.8,
+        "yearly_min_compensation": 39499.2,
+        "monthly_max_compensation": 4941.733333333334,
+        "monthly_min_compensation": 3291.6,
+        "weekly_max_compensation": 1140.4,
+        "weekly_min_compensation": 759.5999999999999,
+        "hourly_max_compensation": 28.51,
+        "hourly_min_compensation": 18.99,
+        "bi-weekly_min_compensation": 1519.1999999999998,
+        "bi-weekly_max_compensation": 2280.8,
+        "daily_min_compensation": 151.92,
+        "daily_max_compensation": 228.08,
+        "estimated_publish_date": "2026-05-14T19:15:46.000Z",
+        "estimated_publish_date_millis": 1778786146000,
+        "fair_chance": false,
+        "visa_sponsorship": false,
+        "relocation_assistance": false,
+        "military_veterans": false,
+        "tuition_reimbursement": false,
+        "retirement_plan": false,
+        "generous_parental_leave": false,
+        "is_high_school_required": true,
+        "is_driver_license_required": false,
+        "is_compensation_transparent": true,
+        "listed_compensation_currency": "USD",
+        "listed_compensation_frequency": "Hourly",
+        "security_clearance": "None",
+        "position_employer_type": "External Position",
+        "company_name": "unmc",
+        "company_website": null,
+        "company_sector_and_industry": "Healthcare",
+        "company_activities": [
+          "clinical research",
+          "healthcare"
+        ],
+        "company_tagline": "Educational and research institution focused on medical science."
+      },
+      "_geoloc": [
+        {
+          "lat": 41.2565,
+          "lon": -95.9271
+        }
+      ],
+      "requisition_id": "txzmgcfdz4g5ltld",
+      "collapse_key": "bd3b4e266086d501e68313b9c95b0a5b222e64d03fbbf197723f1f1f758b7a0c",
+      "is_expired": false,
+      "enriched_company_data": {
+        "latest_funding_investors": null,
+        "homepage_uri": "unmc.edu",
+        "parent_company": null,
+        "latest_funding_year": null,
+        "latest_funding_type": null,
+        "stock_exchange": null,
+        "stock_symbol": null,
+        "nb_employees": 5000,
+        "year_founded": 1869,
+        "hq_country": "US",
+        "enriched_at": "2026-05-20T06:44:15.773Z",
+        "activities": [
+          "Medical education",
+          "Clinical patient care",
+          "Academic research",
+          "Public health services",
+          "Clinical training"
+        ],
+        "industries": [
+          "Education",
+          "Healthcare"
+        ],
+        "latest_funding_amount": null,
+        "name": "University of Nebraska Medical Center",
+        "tagline": "Public academic health science center providing education and healthcare.",
+        "organization_type": "Government",
+        "subsidiaries": null,
+        "status": "VALID_COMPANY"
+      },
+      "objectID": "peopleadmin___unmc_com___98308"
+    },
+    {
+      "id": "peopleadmin___unmc_com___99716",
+      "board_token": "unmc_com",
+      "source": "peopleadmin",
+      "apply_url": "https://unmc.peopleadmin.com/postings/99716",
+      "source_and_board_token": "peopleadmin_unmc_com",
+      "job_information": {
+        "title": "Clinical Research Associate II (PART-TIME)",
+        "job_title_raw": "Clinical Research Associate II (PART-TIME)",
+        "viewedByUsers": [
+          "UE8d7bpjkgPdTFN4e32bBljqnBg2",
+          "sWZRuYOj8DaeXU365iGT3WKLuyH2"
+        ],
+        "num_views": 2,
+        "appliedFromUsers": [
+          "sWZRuYOj8DaeXU365iGT3WKLuyH2"
+        ],
+        "num_applies": 1
+      },
+      "v5_processed_job_data": {
+        "core_job_title": "Clinical Research Associate",
+        "requirements_summary": "Associate's degree in healthcare, science, or related field and 2 years of clinical or research experience in a clinical or laboratory setting; bachelor's degree and psychology or neuroscience preferred.",
+        "technical_tools": [
+          "Microsoft Excel",
+          "Microsoft Word",
+          "Microsoft Outlook",
+          "REDCap",
+          "OpenSpecimen",
+          "R",
+          "MATLAB"
+        ],
+        "licenses_or_certifications": [],
+        "associates_degree_requirement": "Required",
+        "associates_degree_fields_of_study": [
+          "Healthcare",
+          "Science"
+        ],
+        "bachelors_degree_requirement": "Preferred",
+        "bachelors_degree_fields_of_study": [
+          "Psychology",
+          "Neuroscience"
+        ],
+        "masters_degree_requirement": "Not Mentioned",
+        "masters_degree_fields_of_study": [],
+        "doctorate_degree_requirement": "Not Mentioned",
+        "doctorate_degree_fields_of_study": [],
+        "licenses_or_certifications_not_mentioned": true,
+        "min_industry_and_role_yoe": 2,
+        "401k_matching": false,
+        "is_min_industry_and_role_yoe_not_mentioned": false,
+        "min_management_and_leadership_yoe": null,
+        "is_min_management_and_leadership_yoe_not_mentioned": true,
+        "job_category": "Research and Development (R&D)",
+        "role_activities": [
+          "recruiting participants",
+          "managing data",
+          "executing visits"
+        ],
+        "commitment": [
+          "Part Time"
+        ],
+        "role_type": "Individual Contributor",
+        "seniority_level": "Entry Level",
+        "workplace_countries": [
+          "US"
+        ],
+        "boundless_workplace_states": [],
+        "boundless_workplace_countries": [],
+        "boundless_workplace_continents": [],
+        "workplace_continents": [
+          "North America"
+        ],
+        "workplace_states": [
+          "Nebraska, US"
+        ],
+        "workplace_cities": [
+          "Omaha, Nebraska, US"
+        ],
+        "workplace_counties": [
+          "Douglas County, Nebraska, US"
+        ],
+        "workplace_type": "Onsite",
+        "workplace_physical_environment": "Office",
+        "oral_communication_level": "High",
+        "physical_labor_intensity": "Low",
+        "physical_position": "Sitting",
+        "computer_usage": "High",
+        "cognitive_demand": "High",
+        "air_travel_requirement": "None",
+        "land_travel_requirement": "Moderate",
+        "morning_shift_work": "Required",
+        "evening_shift_work": "Not Indicated",
+        "overnight_work": "Not Indicated",
+        "formatted_workplace_location": "Omaha, Nebraska, United States",
+        "on_call_requirement": "None",
+        "weekend_availability_required": false,
+        "holiday_availability_required": false,
+        "generous_paid_time_off": false,
+        "four_day_work_week": false,
+        "overtime_required": false,
+        "is_workplace_worldwide_ok": false,
+        "language_requirements": [
+          "English"
+        ],
+        "num_language_requirements": 1,
+        "number_of_workplace_cities": 1,
+        "number_of_workplace_counties": 1,
+        "number_of_workplace_states": 1,
+        "number_of_workplace_countries": 1,
+        "number_of_workplace_continents": 1,
+        "yearly_max_compensation": 65700.96,
+        "yearly_min_compensation": 43800.64,
+        "monthly_max_compensation": 5475.080000000001,
+        "monthly_min_compensation": 3650.0533333333333,
+        "weekly_max_compensation": 1263.48,
+        "weekly_min_compensation": 842.3199999999999,
+        "hourly_max_compensation": 31.587000000000003,
+        "hourly_min_compensation": 21.058,
+        "bi-weekly_min_compensation": 1684.6399999999999,
+        "bi-weekly_max_compensation": 2526.96,
+        "daily_min_compensation": 168.464,
+        "daily_max_compensation": 252.69600000000003,
+        "estimated_publish_date": "2026-08-11T13:39:11.000Z",
+        "estimated_publish_date_millis": 1786455551000,
+        "fair_chance": false,
+        "visa_sponsorship": false,
+        "relocation_assistance": false,
+        "military_veterans": true,
+        "tuition_reimbursement": false,
+        "retirement_plan": false,
+        "generous_parental_leave": false,
+        "is_high_school_required": true,
+        "is_driver_license_required": false,
+        "is_compensation_transparent": true,
+        "listed_compensation_currency": "USD",
+        "listed_compensation_frequency": "Hourly",
+        "security_clearance": "None",
+        "position_employer_type": "Internal Position",
+        "company_name": "UNMC",
+        "company_website": "unmc.edu",
+        "company_sector_and_industry": "Healthcare",
+        "company_activities": [
+          "medical research",
+          "clinical care"
+        ],
+        "company_tagline": "An academic medical center conducting clinical research and healthcare education."
+      },
+      "enriched_company_data": {
+        "enriched_at": "2026-05-20T06:44:15.773Z",
+        "status": "VALID_COMPANY",
+        "name": "University of Nebraska Medical Center",
+        "homepage_uri": "unmc.edu",
+        "hq_country": "US",
+        "parent_company": null,
+        "subsidiaries": null,
+        "industries": [
+          "Education",
+          "Healthcare"
+        ],
+        "activities": [
+          "Medical education",
+          "Clinical patient care",
+          "Academic research",
+          "Public health services",
+          "Clinical training"
+        ],
+        "nb_employees": 5000,
+        "year_founded": 1869,
+        "tagline": "Public academic health science center providing education and healthcare.",
+        "organization_type": "Government",
+        "latest_funding_investors": null,
+        "latest_funding_type": null,
+        "latest_funding_year": null,
+        "latest_funding_amount": null,
+        "stock_exchange": null,
+        "stock_symbol": null
+      },
+      "_geoloc": [
+        {
+          "lat": 41.2565,
+          "lon": -95.9345
+        }
+      ],
+      "original_source_id": "99716",
+      "requisition_id": "4kjtqndykswaire1",
+      "collapse_key": "bd3b4e266086d501e68313b9c95b0a5b222e64d03fbbf197723f1f1f758b7a0c",
+      "is_expired": false,
+      "objectID": "peopleadmin___unmc_com___99716"
+    },
+    {
+      "id": "peopleadmin___unmc_com___99554",
+      "board_token": "unmc_com",
+      "source": "peopleadmin",
+      "apply_url": "https://unmc.peopleadmin.com/postings/99554",
+      "source_and_board_token": "peopleadmin_unmc_com",
+      "job_information": {
+        "title": "Clinical Research Associate l",
+        "job_title_raw": "Clinical Research Associate l",
+        "hiddenFromUsers": [
+          "QFlvHec7GbZ5G7aJ5VzKQWSi4Kw1"
+        ],
+        "viewedByUsers": [
+          "S7xmPKHaXMbmcDhsZuUA0R1RcGC2",
+          "PTWbepYZaqWBbCVePkuYMQnxl792",
+          "KGyHSOZHqPf82nY3FLLUe6aFGoO2",
+          "M9ETe8RBuLVRo4mdWPiJ27R1ryj1",
+          "4kRixTshdtYdetSOge6RObeBks33",
+          "ZQtGu2RhSKbNBI1UqiRbK2aaIar2",
+          "UE8d7bpjkgPdTFN4e32bBljqnBg2",
+          "eu8VMKMhBaYTlR4Y0Up9B92imdE2",
+          "o4APR8V8kZOBmiktzNBQTOrLXxc2",
+          "svxJGbqKmRZrFwGxkGRi3knKgae2",
+          "QNSRVvWHNwPgKjximepUeh01Fi43",
+          "PSB4mZOoDYXNcwpkbK9b4U3c0K22",
+          "fExc9vlx4ZWVhrV71mY30HO4cVZ2"
+        ],
+        "appliedFromUsers": [
+          "S7xmPKHaXMbmcDhsZuUA0R1RcGC2",
+          "PTWbepYZaqWBbCVePkuYMQnxl792",
+          "M9ETe8RBuLVRo4mdWPiJ27R1ryj1",
+          "4kRixTshdtYdetSOge6RObeBks33",
+          "eu8VMKMhBaYTlR4Y0Up9B92imdE2",
+          "svxJGbqKmRZrFwGxkGRi3knKgae2",
+          "QNSRVvWHNwPgKjximepUeh01Fi43",
+          "fExc9vlx4ZWVhrV71mY30HO4cVZ2"
+        ],
+        "num_views": 13,
+        "num_applies": 8
+      },
+      "v5_processed_job_data": {
+        "core_job_title": "Clinical Research Associate",
+        "requirements_summary": "3 years healthcare/laboratory/clinical research experience; high school or equivalent (or 3 years related post-high school education/experience); attention to detail, protocol adherence, organization, and communication skills.",
+        "technical_tools": [
+          "Epic"
+        ],
+        "licenses_or_certifications": [
+          "phlebotomy"
+        ],
+        "associates_degree_requirement": "Not Mentioned",
+        "associates_degree_fields_of_study": [],
+        "bachelors_degree_requirement": "Not Mentioned",
+        "bachelors_degree_fields_of_study": [],
+        "masters_degree_requirement": "Not Mentioned",
+        "masters_degree_fields_of_study": [],
+        "doctorate_degree_requirement": "Not Mentioned",
+        "doctorate_degree_fields_of_study": [],
+        "licenses_or_certifications_not_mentioned": false,
+        "min_industry_and_role_yoe": 3,
+        "401k_matching": false,
+        "is_min_industry_and_role_yoe_not_mentioned": false,
+        "min_management_and_leadership_yoe": null,
+        "is_min_management_and_leadership_yoe_not_mentioned": true,
+        "job_category": "Research and Development (R&D)",
+        "role_activities": [
+          "coordinating studies",
+          "recruiting participants",
+          "collecting data"
+        ],
+        "commitment": [
+          "Full Time"
+        ],
+        "role_type": "Individual Contributor",
+        "seniority_level": "Mid Level",
+        "workplace_countries": [
+          "US"
+        ],
+        "boundless_workplace_states": [],
+        "boundless_workplace_countries": [],
+        "boundless_workplace_continents": [],
+        "workplace_continents": [
+          "North America"
+        ],
+        "workplace_states": [
+          "Nebraska, US"
+        ],
+        "workplace_cities": [
+          "Omaha, Nebraska, US"
+        ],
+        "workplace_counties": [
+          "Douglas County, Nebraska, US"
+        ],
+        "workplace_type": "Onsite",
+        "workplace_physical_environment": "Office",
+        "oral_communication_level": "High",
+        "physical_labor_intensity": "Low",
+        "physical_position": "Sitting",
+        "computer_usage": "High",
+        "cognitive_demand": "High",
+        "air_travel_requirement": "None",
+        "land_travel_requirement": "None",
+        "morning_shift_work": "Not Indicated",
+        "evening_shift_work": "Not Indicated",
+        "overnight_work": "Not Indicated",
+        "formatted_workplace_location": "Omaha, Nebraska, United States",
+        "on_call_requirement": "None",
+        "weekend_availability_required": false,
+        "holiday_availability_required": false,
+        "generous_paid_time_off": false,
+        "four_day_work_week": false,
+        "overtime_required": false,
+        "is_workplace_worldwide_ok": false,
+        "language_requirements": [
+          "English"
+        ],
+        "num_language_requirements": 1,
+        "number_of_workplace_cities": 1,
+        "number_of_workplace_counties": 1,
+        "number_of_workplace_states": 1,
+        "number_of_workplace_countries": 1,
+        "number_of_workplace_continents": 1,
+        "yearly_max_compensation": 59300.8,
+        "yearly_min_compensation": 39499.2,
+        "monthly_max_compensation": 4941.733333333334,
+        "monthly_min_compensation": 3291.6,
+        "weekly_max_compensation": 1140.4,
+        "weekly_min_compensation": 759.5999999999999,
+        "hourly_max_compensation": 28.51,
+        "hourly_min_compensation": 18.99,
+        "bi-weekly_min_compensation": 1519.1999999999998,
+        "bi-weekly_max_compensation": 2280.8,
+        "daily_min_compensation": 151.92,
+        "daily_max_compensation": 228.08,
+        "estimated_publish_date": "2026-07-29T19:33:34.000Z",
+        "estimated_publish_date_millis": 1785353614000,
+        "fair_chance": false,
+        "visa_sponsorship": false,
+        "relocation_assistance": false,
+        "military_veterans": false,
+        "tuition_reimbursement": false,
+        "retirement_plan": false,
+        "generous_parental_leave": false,
+        "is_high_school_required": true,
+        "is_driver_license_required": false,
+        "is_compensation_transparent": true,
+        "listed_compensation_currency": "USD",
+        "listed_compensation_frequency": "Hourly",
+        "security_clearance": "None",
+        "position_employer_type": "Internal Position",
+        "company_name": "unmc",
+        "company_website": null,
+        "company_sector_and_industry": "Healthcare",
+        "company_activities": [
+          "clinical research",
+          "rheumatology"
+        ],
+        "company_tagline": "An academic health system division conducting clinical research and patient-focused care in rheumatology."
+      },
+      "enriched_company_data": {
+        "enriched_at": "2026-05-20T06:44:15.773Z",
+        "status": "VALID_COMPANY",
+        "name": "University of Nebraska Medical Center",
+        "homepage_uri": "unmc.edu",
+        "hq_country": "US",
+        "parent_company": null,
+        "subsidiaries": null,
+        "industries": [
+          "Education",
+          "Healthcare"
+        ],
+        "activities": [
+          "Medical education",
+          "Clinical patient care",
+          "Academic research",
+          "Public health services",
+          "Clinical training"
+        ],
+        "nb_employees": 5000,
+        "year_founded": 1869,
+        "tagline": "Public academic health science center providing education and healthcare.",
+        "organization_type": "Government",
+        "latest_funding_investors": null,
+        "latest_funding_type": null,
+        "latest_funding_year": null,
+        "latest_funding_amount": null,
+        "stock_exchange": null,
+        "stock_symbol": null
+      },
+      "_geoloc": [
+        {
+          "lat": 41.2565,
+          "lon": -95.9345
+        }
+      ],
+      "original_source_id": "99554",
+      "requisition_id": "q98neceklc7cuxui",
+      "collapse_key": "bd3b4e266086d501e68313b9c95b0a5b222e64d03fbbf197723f1f1f758b7a0c",
+      "is_expired": false,
+      "objectID": "peopleadmin___unmc_com___99554"
+    }
+  ]
+}

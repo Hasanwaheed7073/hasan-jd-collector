@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JD Collector</title>
+<link rel="stylesheet" href="sidepanel.css" />
+</head>
+<!-- The panel does three things: build a search, collect, and hand the results
+     over. It forms no opinion about any job - every filter below keys on a fact
+     read out of the posting, never on a score.
+
+     Simple mode is the default: `body.simple` hides every [data-adv] element,
+     leaving the controls a normal run needs. The gear toggles it and the choice
+     persists. Nothing is disabled in simple mode - hidden fields keep their
+     values and still apply, and Results says so when one is narrowing the
+     list. -->
+<body class="simple">
+
+<header class="bar">
+  <div class="brand">JD&nbsp;Collector</div>
+  <div class="bar-actions">
+    <button id="btnStart" class="primary">Collect</button>
+    <button id="btnStop" class="danger" hidden>Stop</button>
+    <button id="btnAdvanced" class="ghost" aria-pressed="false"
+            title="Show advanced settings">&#9881;</button>
+  </div>
+</header>
+
+<div id="status" class="status">
+  <div class="status-line">
+    <span id="statusText">Idle</span>
+    <span id="statusCounts" class="muted"></span>
+  </div>
+  <div class="track"><div id="barFill" class="fill"></div></div>
+  <div id="currentJob" class="muted small"></div>
+  <div id="banner" class="banner" hidden></div>
+</div>
+
+<main>
+
+  <!-- 1. Search ---------------------------------------------------------- -->
+  <details class="card" open>
+    <summary>Search</summary>
+    <div class="body">
+      <p class="hint" data-adv>
+        Use LinkedIn's own filters for anything it supports natively - that is far
+        faster than collecting everything and filtering afterwards.
+      </p>
+
+      <label>Job title / keywords
+        <input id="sKeywords" type="text" placeholder="Clinical Research Associate" />
+      </label>
+
+      <label>Location
+        <input id="sLocation" type="text" placeholder="United States" />
+      </label>
+
+      <div class="grid2">
+        <label>Workplace
+          <select id="sRemote">
+            <option value="">Any</option>
+            <option value="1">On-site</option>
+            <option value="2">Remote</option>
+            <option value="3">Hybrid</option>
+            <option value="2,3">Remote + Hybrid</option>
+          </select>
+        </label>
+
+        <label>Date posted
+          <select id="sPosted">
+            <option value="">Any time</option>
+            <option value="r86400">Past 24 hours</option>
+            <option value="r259200">Past 3 days</option>
+            <option value="r604800">Past week</option>
+            <option value="r2592000">Past month</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid2" data-adv>
+        <label>Experience level
+          <select id="sLevel">
+            <option value="">Any</option>
+            <option value="1">Internship</option>
+            <option value="2">Entry level</option>
+            <option value="3">Associate</option>
+            <option value="4">Mid-Senior level</option>
+            <option value="5">Director</option>
+            <option value="6">Executive</option>
+          </select>
+        </label>
+
+        <label>Job type
+          <select id="sType">
+            <option value="">Any</option>
+            <option value="F">Full-time</option>
+            <option value="P">Part-time</option>
+            <option value="C">Contract</option>
+            <option value="T">Temporary</option>
+            <option value="I">Internship</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid2" data-adv>
+        <label>Sort by
+          <select id="sSort">
+            <option value="DD">Most recent</option>
+            <option value="R">Most relevant</option>
+          </select>
+        </label>
+        <label class="check"><input id="sUnder10" type="checkbox" /> Fewer than 10 applicants</label>
+      </div>
+
+      <div class="row wrap">
+        <button id="btnOpenSearch" class="primary">Open search in this tab</button>
+        <button id="btnNewTab">Open in new tab</button>
+      </div>
+
+      <!-- A second source for the same criteria: no LinkedIn tab, no login, and
+           the rows arrive with an employer apply URL already on them. -->
+      <div class="row wrap">
+        <button id="btnCollectHc">Collect from hiring.cafe</button>
+        <button id="btnStopHc" class="danger" hidden>Stop</button>
+      </div>
+
+      <div class="row wrap">
+        <button id="btnSettings">Settings &amp; diagnostics</button>
+      </div>
+
+      <div class="hint" data-adv>Current tab: <span id="tabUrl" class="mono">-</span></div>
+    </div>
+  </details>
+
+  <!-- 2. Filters --------------------------------------------------------- -->
+  <details class="card" data-adv>
+    <summary>Filter the collected jobs</summary>
+    <div class="body">
+      <p class="hint">
+        Every filter here keys on something read out of the posting. Nothing is
+        scored or ranked.
+      </p>
+
+      <fieldset>
+        <legend>Workplace type</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" class="fWorkplace" value="Remote" /> Remote</label>
+          <label class="chip"><input type="checkbox" class="fWorkplace" value="Hybrid" /> Hybrid</label>
+          <label class="chip"><input type="checkbox" class="fWorkplace" value="On-site" /> On-site</label>
+          <label class="chip"><input type="checkbox" class="fWorkplace" value="Unknown" /> Unknown</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Application route</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" class="fApply" value="external" /> Direct apply (company site)</label>
+          <label class="chip"><input type="checkbox" class="fApply" value="easy_apply" /> Easy Apply</label>
+          <label class="chip"><input type="checkbox" class="fApply" value="closed" /> Closed</label>
+          <label class="chip"><input type="checkbox" class="fApply" value="unknown" /> Unknown</label>
+        </div>
+      </fieldset>
+
+      <div class="chips">
+        <label class="chip"><input id="fNoRepost" type="checkbox" /> Hide reposted</label>
+        <label class="chip"><input id="fNoPromoted" type="checkbox" /> Hide promoted</label>
+        <label class="chip"><input id="fNoSeen" type="checkbox" /> Hide already exported</label>
+        <label class="chip"><input id="fNoRejected" type="checkbox" /> Hide previously turned down</label>
+      </div>
+      <p class="hint">
+        <strong>Previously turned down</strong> = a job your vetting chat already
+        rejected, read back in via Settings &rarr; Vetting feedback. The panel
+        forms no opinion of its own; this only remembers one you already made.
+      </p>
+
+      <fieldset>
+        <legend>Stated in the description</legend>
+        <div class="chips">
+          <label class="chip"><input id="fNoClearance" type="checkbox" /> Hide clearance required</label>
+          <label class="chip"><input id="fNoSponsor" type="checkbox" /> Hide "no sponsorship"</label>
+          <label class="chip"><input id="fNoReloc" type="checkbox" /> Hide relocation required</label>
+          <label class="chip"><input id="fNoFakeRemote" type="checkbox" /> Hide fake remote</label>
+        </div>
+        <p class="hint">
+          <strong>Fake remote</strong> = tagged Remote by LinkedIn but the description
+          demands office days or says it is not remote.
+        </p>
+      </fieldset>
+
+      <div class="grid2">
+        <label>Min pay, annualized <span class="muted">(blank = any)</span>
+          <input id="fMinPay" type="number" min="0" step="5000" placeholder="120000" />
+        </label>
+        <label>Max years required <span class="muted">(blank = any)</span>
+          <input id="fMaxYoe" type="number" min="0" step="1" placeholder="5" />
+        </label>
+      </div>
+      <div class="grid2">
+        <label>Max travel % <span class="muted">(blank = any)</span>
+          <input id="fMaxTravel" type="number" min="0" max="100" step="5" placeholder="25" />
+        </label>
+        <label class="check" style="align-self:end">
+          <input id="fHasPay" type="checkbox" /> Only jobs with pay found
+        </label>
+      </div>
+
+      <div class="grid2">
+        <label>Posted within (days, blank = any)
+          <input id="fMaxDays" type="number" min="0" step="1" />
+        </label>
+        <label>Max applicants (blank = any)
+          <input id="fMaxApplicants" type="number" min="0" step="1" />
+        </label>
+      </div>
+
+      <label>Title must contain any of <span class="muted">(comma separated)</span>
+        <input id="fTitleAny" type="text" placeholder="associate, cra, monitor" />
+      </label>
+      <label>Title must NOT contain
+        <input id="fTitleNot" type="text" placeholder="senior, principal, director" />
+      </label>
+      <label>JD must contain <span class="muted">(comma = AND)</span>
+        <input id="fJdAll" type="text" placeholder="ich-gcp" />
+      </label>
+      <label>JD must contain any of <span class="muted">(comma = OR)</span>
+        <input id="fJdAny" type="text" placeholder="oncology, cardiology" />
+      </label>
+      <label>JD must NOT contain
+        <input id="fJdNot" type="text" placeholder="security clearance, must relocate" />
+      </label>
+      <label>Exclude companies <span class="muted">(staffing agencies etc.)</span>
+        <input id="fCompanyNot" type="text" placeholder="Jobot, Talent Group" />
+      </label>
+      <div class="grid2">
+        <label>Min JD length (chars)
+          <input id="fMinChars" type="number" min="0" step="100" />
+        </label>
+        <label>&nbsp;
+          <button id="btnResetFilters">Reset filters</button>
+        </label>
+      </div>
+    </div>
+  </details>
+
+  <!-- 3. Results --------------------------------------------------------- -->
+  <section class="card open">
+    <div class="section-head">
+      <strong>Results</strong>
+      <span id="resultCount" class="muted"></span>
+    </div>
+    <div class="body">
+      <div class="grid2">
+        <label>Sort by
+          <select id="fSort">
+            <option value="collected">Order collected</option>
+            <option value="posted">Newest posted</option>
+            <option value="pay">Highest pay</option>
+            <option value="applicants">Fewest applicants</option>
+          </select>
+        </label>
+        <label>&nbsp;</label>
+      </div>
+
+      <div id="filterNote" class="hint" hidden></div>
+
+      <div class="row wrap">
+        <button id="btnSelectAll">Select all shown</button>
+        <button id="btnSelectNone">Clear selection</button>
+        <span id="selCount" class="muted"></span>
+      </div>
+      <div id="results" class="results"></div>
+      <div id="resultsNote" class="hint"></div>
+      <div class="row wrap">
+        <button id="btnResolveApply">Find real apply links</button>
+        <button id="btnStopResolve" class="danger" hidden>Stop</button>
+        <span id="resolveInfo" class="muted small"></span>
+      </div>
+      <p class="hint" data-adv>
+        For selected <strong>direct-apply</strong> jobs, opens each Apply button once to
+        capture the employer's real application URL, then closes the tab. Takes a few
+        seconds per job, so run it on your shortlist rather than the whole search.
+        Jobs collected from hiring.cafe already carry one.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4. Export ---------------------------------------------------------- -->
+  <details class="card" open>
+    <summary>Export</summary>
+    <div class="body">
+      <div id="batchInfo" class="hint"></div>
+      <div id="batchButtons" class="row wrap"></div>
+      <div class="row wrap">
+        <button id="btnCopyAll">Copy all batches</button>
+        <button id="btnDownloadMd">Download .md</button>
+        <button id="btnDownloadCsv" data-adv>Download .csv</button>
+        <button id="btnDownloadJson" data-adv>Download .json</button>
+      </div>
+      <div class="row wrap" data-adv>
+        <button id="btnMarkExported">Mark selected as exported</button>
+        <button id="btnClearJobs" class="danger">Clear results</button>
+        <button id="btnClearHistory" class="danger">Clear export history</button>
+      </div>
+      <div id="historyInfo" class="hint" data-adv></div>
+    </div>
+  </details>
+
+</main>
+
+<script src="../content/parse.js"></script>
+<script src="sidepanel.js"></script>
+</body>
+</html>

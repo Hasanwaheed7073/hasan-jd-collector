@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>JD Collector — Settings</title>
+<link rel="stylesheet" href="manager.css" />
+</head>
+<!-- Settings and diagnostics, in a window with room to read them. The side
+     panel is the run surface; nothing here is needed mid-run. -->
+<body>
+
+<header class="bar">
+  <div class="brand">JD&nbsp;Collector</div>
+
+  <nav class="nav" id="nav">
+    <button class="navbtn on" data-section="collection">Collection</button>
+    <button class="navbtn" data-section="export">Prompt &amp; export</button>
+    <button class="navbtn" data-section="vetting">Vetting feedback</button>
+    <button class="navbtn" data-section="ai">AI assist</button>
+    <button class="navbtn" data-section="diagnostics">Diagnostics</button>
+  </nav>
+
+  <div class="bar-actions">
+    <span id="saveState" class="muted small"></span>
+  </div>
+</header>
+
+<div id="banner" class="banner" hidden></div>
+
+<main>
+
+  <!-- Collection ------------------------------------------------------- -->
+  <section class="sheet" data-section="collection">
+    <h2>Collection</h2>
+    <p class="lede">
+      How hard the collector drives LinkedIn. Slower is safer: at 1.2s per job a
+      25-job page takes about 40 seconds.
+    </p>
+
+    <div class="form">
+      <div class="grid2">
+        <label>Delay per job (ms)
+          <input id="cDelay" type="number" min="200" step="100" />
+        </label>
+        <label>Random jitter (ms)
+          <input id="cJitter" type="number" min="0" step="100" />
+        </label>
+      </div>
+      <div class="grid2">
+        <label>Long pause every N jobs
+          <input id="cPauseEvery" type="number" min="0" step="1" />
+        </label>
+        <label>Long pause (ms)
+          <input id="cPauseMs" type="number" min="0" step="500" />
+        </label>
+      </div>
+      <div class="grid2">
+        <label>Max pages <span class="muted">(0 = all)</span>
+          <input id="cMaxPages" type="number" min="0" step="1" />
+        </label>
+        <label>Max jobs <span class="muted">(0 = all)</span>
+          <input id="cMaxJobs" type="number" min="0" step="1" />
+        </label>
+      </div>
+
+      <label class="check">
+        <input id="cSkipSeen" type="checkbox" /> Skip jobs already exported (dedupe across days)
+      </label>
+      <label class="check">
+        <input id="cSkipRejected" type="checkbox" /> Skip jobs a previous vetting pass turned down
+      </label>
+      <label class="check">
+        <input id="cClearBefore" type="checkbox" /> Clear previous results when starting
+      </label>
+
+      <p class="hint">
+        A run also stops on its own after two pages that add no new jobs &mdash; that
+        is what keeps a surface like the AI job search, which ignores page
+        offsets, from reloading the same list until the page limit runs out.
+      </p>
+    </div>
+  </section>
+
+  <!-- Prompt & export ------------------------------------------------- -->
+  <section class="sheet" data-section="export" hidden>
+    <h2>Prompt &amp; export</h2>
+    <p class="lede">
+      Prepended to every batch you copy or download. The extension adds the
+      postings and their parsed facts below it and nothing else &mdash; it states
+      no opinion about any job, so whatever you want the model to weigh belongs
+      here.
+    </p>
+
+    <div class="form">
+      <label>Prompt
+        <textarea id="xPrompt" rows="16" spellcheck="false"></textarea>
+      </label>
+      <div class="row wrap">
+        <button id="btnResetPrompt">Reset to the built-in prompt</button>
+        <span id="promptInfo" class="muted small"></span>
+      </div>
+
+      <div class="grid2">
+        <label>Max characters per batch
+          <input id="xBatchChars" type="number" min="5000" step="5000" />
+        </label>
+        <label>Trim each JD to <span class="muted">(0 = full)</span>
+          <input id="xMaxJd" type="number" min="0" step="500" />
+        </label>
+      </div>
+
+      <p class="hint">
+        A single posting longer than the batch budget still gets its own batch
+        rather than being dropped.
+      </p>
+
+      <label>Vetting reply format <span class="muted">(appended after the prompt; blank to omit)</span>
+        <textarea id="xVetting" rows="6" spellcheck="false"></textarea>
+      </label>
+      <div class="row wrap">
+        <button id="btnResetVetting">Reset to the built-in format</button>
+      </div>
+      <p class="hint">
+        This asks the chat you paste batches into to end its reply with one
+        machine-readable line per job, so <strong>Vetting feedback</strong> can read
+        those calls back in. It changes the shape of the reply, never its content
+        &mdash; nothing here tells the model what to conclude.
+      </p>
+    </div>
+  </section>
+
+  <!-- Vetting feedback -------------------------------------------------- -->
+  <section class="sheet" data-section="vetting" hidden>
+    <h2>Vetting feedback</h2>
+    <p class="lede">
+      Reads accept/reject calls back out of the chat you paste batches into, so a
+      job you already turned down does not come back on the next run. The
+      extension forms no opinion of its own &mdash; the call was yours, this only
+      remembers it. Open the chat in a tab, then scan.
+    </p>
+
+    <div class="form">
+      <div class="row wrap">
+        <button id="btnGemScan" class="primary">Scan the open chat tab</button>
+        <button id="btnGemDiag">Diagnose the chat page</button>
+        <span id="gemInfo" class="muted small"></span>
+      </div>
+      <pre id="gemOut" class="log"></pre>
+
+      <div class="col-head">
+        <strong>Remembered calls</strong>
+        <div class="row">
+          <button id="btnGemRefresh">Refresh</button>
+          <button id="btnGemClear" class="danger">Clear all</button>
+        </div>
+      </div>
+      <div id="gemList" class="item-list"></div>
+
+      <p class="hint">
+        Only lines matching the vetting reply format are imported. Anything
+        ambiguous is listed above for you to read rather than guessed at &mdash; a
+        wrong reject would silently delete a good job from every future run.
+      </p>
+    </div>
+  </section>
+
+  <!-- AI assist -------------------------------------------------------- -->
+  <section class="sheet" data-section="ai" hidden>
+    <h2>AI assist</h2>
+    <p class="lede">
+      LinkedIn's AI job search has no selectors worth writing: its class names
+      are build hashes that rotate on every deploy. When the built-in
+      structure-based fallbacks come up empty, this describes the page to a
+      model and asks it <em>where</em> things are &mdash; the list, a card, the
+      title, the description &mdash; then checks every selector it gets back
+      against the real page before using any of them.
+    </p>
+    <p class="lede">
+      It is never asked what a job says or whether a job is any good. Facts
+      still come out of the page, through the same parsers as always.
+    </p>
+
+    <div class="form">
+      <label class="check">
+        <input id="aEnabled" type="checkbox" /> Use AI assist when a page defeats the built-in selectors
+      </label>
+
+      <label>OpenRouter API key
+        <input id="aKey" type="password" spellcheck="false" autocomplete="off"
+               placeholder="sk-or-v1-…" />
+      </label>
+      <p class="hint">
+        Created at openrouter.ai &rarr; Keys. Stored in this browser's extension
+        storage and sent to openrouter.ai only, in the Authorization header of
+        the calls below.
+      </p>
+
+      <label>Models <span class="muted">(one per line, tried in order)</span>
+        <textarea id="aModels" rows="4" spellcheck="false"></textarea>
+      </label>
+      <p class="hint">
+        Free endpoints are rate limited hard &mdash; a few calls a minute &mdash; so one
+        model is one bad minute away from a run with no assist at all. The list is
+        tried in order and the first usable answer wins; a model that is limited,
+        down, or replies with prose instead of JSON simply hands over to the next
+        one, and the log says which did what. Verified free as of 2026-09-01:
+        <code>minimax/minimax-m2.7:free</code>,
+        <code>nvidia/nemotron-3-ultra-550b-a55b:free</code>,
+        <code>z-ai/glm-5.2:free</code>,
+        <code>minimax/minimax-m3:free</code>.
+      </p>
+
+      <div class="grid2">
+        <label>Model calls per run <span class="muted">(max)</span>
+          <input id="aMaxCalls" type="number" min="0" step="1" />
+        </label>
+        <label>Timeout (ms)
+          <input id="aTimeout" type="number" min="10000" step="5000" />
+        </label>
+      </div>
+
+      <div class="col-head">
+        <strong>Field check</strong>
+      </div>
+      <label class="check">
+        <input id="aVerify" type="checkbox" /> Have a model read each job and fill in what the page reader missed
+      </label>
+      <p class="hint">
+        <strong>This one sends posting text.</strong> Up to 4,000 characters of the
+        job's own pane &mdash; the header plus the start of the description &mdash;
+        goes to the model for each job with a missing field. The selector assist
+        above never sends that; this does. It also costs one call per job, which
+        on a free endpoint is the difference between a run and an afternoon, so
+        it is capped.
+      </p>
+      <p class="hint">
+        <strong>What it may return:</strong> only values that appear in the text it
+        was shown, checked character for character before anything is kept. A
+        company name that is not on the page is discarded; a salary that is not on
+        the page is discarded. It fills gaps only &mdash; a field the page already
+        yielded is never overwritten &mdash; and every field it did fill is labelled
+        as such on the row and in the export. It is never asked whether a job is
+        any good, and there is still no score, rank or fit anywhere in here.
+      </p>
+      <label>Field-check models <span class="muted">(one per line, tried in order)</span>
+        <textarea id="aVerifyModels" rows="3" spellcheck="false"></textarea>
+      </label>
+      <div class="grid2">
+        <label>Field checks per run <span class="muted">(max)</span>
+          <input id="aVerifyMax" type="number" min="0" step="5" />
+        </label>
+        <label>Characters sent per job
+          <input id="aVerifyChars" type="number" min="500" step="500" />
+        </label>
+      </div>
+
+      <div class="row wrap">
+        <button id="btnAiProbe" class="primary">Resolve the open job page</button>
+        <button id="btnAiTest">Test the connection</button>
+        <button id="btnAiCopy">Copy report</button>
+        <span id="aiInfo" class="muted small"></span>
+      </div>
+      <pre id="aiOut" class="log"></pre>
+
+      <div class="col-head">
+        <strong>Remembered page plans</strong>
+        <div class="row">
+          <button id="btnAiRefresh">Refresh</button>
+          <button id="btnAiClear" class="danger">Forget all</button>
+        </div>
+      </div>
+      <div id="aiPlans" class="item-list"></div>
+
+      <p class="hint">
+        <strong>What is sent:</strong> a structural outline of the page &mdash; tags,
+        ids, class names, a few attributes, and visible label text truncated to
+        60 characters, with hidden elements dropped and repeated cards collapsed.
+        Job descriptions are not included, and nothing is sent unless a page has
+        already defeated the built-in selectors. A resolved page is remembered,
+        so later runs on the same surface cost no calls at all.
+      </p>
+      <p class="hint">
+        A selector is used only if it matches the right number of elements with
+        the right shape of content, and never if the hand-written selector for
+        that field still works &mdash; so this can fill a gap but can never take
+        over a layout that already collects.
+      </p>
+    </div>
+  </section>
+
+  <!-- Diagnostics ------------------------------------------------------ -->
+  <section class="sheet" data-section="diagnostics" hidden>
+    <h2>Diagnostics</h2>
+    <p class="lede">
+      When a page collects nothing &mdash; a LinkedIn redesign, the AI job search, a
+      new board &mdash; this reports structure only: tags, classes and counts. No
+      job text, no personal data. That output is what a precise adapter gets
+      written from.
+    </p>
+
+    <div class="form">
+      <div class="row wrap">
+        <button id="btnDiagJob" class="primary">Diagnose the job page</button>
+        <button id="btnTraceOne">Trace one AI-search job</button>
+        <button id="btnDiagHc">Test hiring.cafe</button>
+        <button id="btnDiagCopy">Copy report</button>
+        <span id="diagInfo" class="muted small"></span>
+      </div>
+      <pre id="diagOut" class="log"></pre>
+      <p class="hint">
+        <strong>Trace one AI-search job</strong> runs the whole pipeline against a
+        single job on the open tab &mdash; card discovered, clicked, selection
+        synchronised, extracted, validated, payload built, saved &mdash; and prints
+        what each stage saw, including field lengths and the save response. Prove
+        a surface on one job before turning a run loose on four hundred. The job
+        it traces is collected for real, so it will appear in Results.
+      </p>
+
+      <div class="col-head">
+        <strong>Activity log</strong>
+        <div class="row">
+          <button id="btnLogRefresh">Refresh</button>
+          <button id="btnLogCopy">Copy</button>
+        </div>
+      </div>
+      <pre id="logOut" class="log"></pre>
+    </div>
+  </section>
+
+</main>
+
+<script src="../lib/hiringcafe.js"></script>
+<script src="manager.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+node_modules/
+*.log
+
+# Screenshots of a live LinkedIn session: profile photo, notification counts,
+# the actual searches run, and in one case the collected results. Useful for
+# debugging, not part of the extension, and this repo is public. Delete these
+# lines if you want them published.
+Linkedin AI job search Screenshot.png
+Screenshot 2026-09-01 155600.png
+ss pb.png

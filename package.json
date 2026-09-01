@@ -1,0 +1,22 @@
+{
+  "name": "jd-collector-linkedin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension that bulk-collects LinkedIn job descriptions for Claude vetting.",
+  "scripts": {
+    "test": "node tests/assets.test.js && node tests/worker.test.js && node tests/parse.test.js && node tests/extract.test.js && node tests/generic.test.js && node tests/searchresults.test.js && node tests/pane.test.js && node tests/aisearch.test.js && node tests/aisearch-adapter.test.js && node tests/aiplan.test.js && node tests/aifields.test.js && node tests/hiringcafe.test.js && node tests/gem.test.js && node tests/panel.test.js && node tests/manager.test.js",
+    "test:generic": "node tests/generic.test.js",
+    "test:pane": "node tests/pane.test.js",
+    "test:panel": "node tests/panel.test.js",
+    "test:manager": "node tests/manager.test.js",
+    "test:hc": "node tests/hiringcafe.test.js",
+    "test:ai": "node tests/aisearch.test.js",
+    "test:plan": "node tests/aiplan.test.js",
+    "test:adapter": "node tests/aisearch-adapter.test.js",
+    "test:fields": "node tests/aifields.test.js",
+    "test:gem": "node tests/gem.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
+  }
+}
