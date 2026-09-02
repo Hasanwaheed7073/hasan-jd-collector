@@ -250,6 +250,16 @@
       <span id="resultCount" class="muted"></span>
     </div>
     <div class="body">
+      <!-- Out in the open, not behind the gear: this is the control you reach
+           for when a vetting pass comes back and you need one job out of four
+           hundred. It searches company, title, location and the job id, so a
+           VERDICT line's id can be pasted straight in. -->
+      <div class="row wrap searchrow">
+        <input id="fSearch" type="search" spellcheck="false"
+               placeholder="Search company, title, location or job id" />
+        <button id="btnSearchClear" title="Clear the search (Esc)">Clear</button>
+      </div>
+
       <div class="grid2">
         <label>Sort by
           <select id="fSort">

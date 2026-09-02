@@ -172,6 +172,81 @@ check('the two together still keep it',
 check('while a job that DID state a different one is still dropped',
   ids(filterNow()).indexOf('1'), -1);
 
+console.log('\n--- searching the collected jobs ---');
+
+/* The problem: a vetting pass approves four jobs out of four hundred and
+ * finding them means scrolling. Typing the company should put the job on top,
+ * and pasting the id out of a "VERDICT <ID> ACCEPT" line should land on it
+ * exactly. */
+API.JOBS = [
+  job({ jobId: '5001', title: 'CRA II', company: 'Acme CRO', location: 'Boston, MA' }),
+  job({ jobId: '5002', title: 'Senior CRA', company: 'Beta Labs', location: 'Austin, TX',
+    description: 'Partnering with Acme CRO on joint oncology programmes.', descriptionChars: 54 }),
+  job({ jobId: '5003', title: 'Acme Programme Lead', company: 'Gamma Health', location: 'Remote' }),
+  job({ jobId: '5004', title: 'Data Manager', company: 'Delta Bio', location: 'Acme Park, NJ' })
+];
+
+API.writeFilters({ q: 'acme' });
+const hits = API.currentFiltered();
+check('every job mentioning it is found', ids(hits).sort(), ['5001', '5002', '5003', '5004']);
+
+/* The ranking is the feature. A company called Acme beats a title that
+ * contains it, which beats a location, which beats a passing mention in the
+ * posting - otherwise "search the company" does not actually put it first. */
+check('the company match leads', ids(hits)[0], '5001');
+check('then the title', ids(hits)[1], '5003');
+check('then the location', ids(hits)[2], '5004');
+check('and a passing mention in the description is last', ids(hits)[3], '5002');
+
+API.writeFilters({ q: 'Acme CRO' });
+check('an exact company beats everything else',
+  ids(API.currentFiltered())[0], '5001');
+check('and every term has to land somewhere',
+  ids(API.currentFiltered()).indexOf('5004'), -1);
+
+/* Pasting an id out of a verdict line. */
+API.writeFilters({ q: '5003' });
+check('a job id finds exactly one job', ids(API.currentFiltered()), ['5003']);
+API.writeFilters({ q: '  5003  ' });
+check('and survives the whitespace a paste brings with it',
+  ids(API.currentFiltered()), ['5003']);
+
+API.writeFilters({ q: 'ACME' });
+check('case does not matter', ids(API.currentFiltered())[0], '5001');
+API.writeFilters({ q: 'acme boston' });
+check('two terms narrow rather than widen', ids(API.currentFiltered()), ['5001']);
+API.writeFilters({ q: 'nonexistent-company' });
+check('no match shows nothing rather than everything',
+  API.currentFiltered().length, 0);
+
+API.writeFilters({ q: '' });
+check('an empty search hides nothing', API.currentFiltered().length, 4);
+API.writeFilters({ q: '   ' });
+check('and neither does whitespace', API.currentFiltered().length, 4);
+
+console.log('\n--- the search says so, and says it in the right places ---');
+
+API.writeFilters({ q: 'acme' });
+API.render();
+check('the count line names the term',
+  /matching "acme", best first/.test($('resultCount').textContent), true);
+
+API.writeFilters({ q: 'nothing-matches-this' });
+API.render();
+check('an empty result blames the search, not a filter',
+  /Nothing matches "nothing-matches-this"/.test($('resultsNote').textContent), true);
+check('and says what it looks at',
+  /company, title, location and job id/.test($('resultsNote').textContent), true);
+
+/* It is visible above the list, so it is NOT one of the hidden filters the
+ * gear note warns about - that warning is for controls you cannot see. */
+API.setAdvanced(false);
+check('the hidden-filter note ignores it',
+  API.activeAdvFilters(API.readFilters()).indexOf('q'), -1);
+
+API.writeFilters({ q: '' });
+API.JOBS = JOBS;
+
 console.log('\n--- an empty list always names the filter that emptied it ---');
 
 /* The failure this exists for: "0 of 12 collected", an empty box, and no way

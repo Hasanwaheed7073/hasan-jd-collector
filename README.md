@@ -56,7 +56,21 @@ pagination.
 [hiringcafe.com](https://hiringcafe.com) instead — no LinkedIn tab, no login, no
 session to get restricted. See [hiring.cafe](#hiringcafe) below.
 
-### 3 · Filter
+### 3 · Search and filter
+
+**Search** sits above the results, not behind the gear, because it is the
+control you reach for when a vetting pass approves four jobs out of four
+hundred and finding them means scrolling. It matches company, title, location
+and **job id** — so an id pasted straight out of a `VERDICT <ID> ACCEPT` line
+lands on that job exactly.
+
+It ranks as well as filters. Every term has to match somewhere, but where it
+matched decides the order: a company called Acme comes above a job whose title
+mentions Acme, which comes above one that merely name-drops it in paragraph
+nine. Whatever sort you have chosen survives as the tiebreak. Esc or **Clear**
+empties it, and it is deliberately **not** remembered between sessions — a
+saved search that quietly narrows the list on next open is the same trap as a
+hidden filter.
 
 Filters run on the already-collected set, so you can re-filter freely without
 re-collecting. They live behind the gear. In order of usefulness:
@@ -680,7 +694,7 @@ npm install
 npm test
 ```
 
-1,156 checks. The two boot suites run **first**, so a load-time failure is the
+1,174 checks. The two boot suites run **first**, so a load-time failure is the
 first thing you see — two of those shipped during development and neither was
 catchable by anything else.
 
@@ -787,5 +801,3 @@ itself; it never reports success on an empty pass.
 **Structure over class names.** Every selector belongs to someone else's app.
 Where a durable anchor exists — a job link, a repeated sibling group, an "About
 the job" heading — it is preferred over anything that can be renamed in a deploy.
-#   h a s a n - j d - c o l l e c t o r -  
- 

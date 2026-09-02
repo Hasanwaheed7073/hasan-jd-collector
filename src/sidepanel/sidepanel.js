@@ -185,6 +185,7 @@ function readFilters() {
       .map((c) => c.value);
 
   return {
+    q: $('fSearch').value,
     workplace: checked('fWorkplace'),
     apply: checked('fApply'),
     noRepost: $('fNoRepost').checked,
@@ -218,6 +219,7 @@ function writeFilters(f) {
     const set = new Set(values || []);
     document.querySelectorAll('.' + cls).forEach((c) => { c.checked = set.has(c.value); });
   };
+  $('fSearch').value = f.q || '';
   apply('fWorkplace', f.workplace);
   apply('fApply', f.apply);
   $('fNoRepost').checked = !!f.noRepost;
@@ -244,6 +246,71 @@ function writeFilters(f) {
   $('fMinChars').value = f.minChars || '';
 }
 
+/* ---------------- search ----------------
+ *
+ * The problem this solves: a vetting pass comes back approving four jobs out
+ * of four hundred, and finding those four means scrolling. Typing the company
+ * should put the job on top.
+ *
+ * So it RANKS as well as filters. Every term has to match somewhere - that is
+ * what people mean by a search box - but where it matched decides the order:
+ * a company called Acme beats a posting that mentions Acme in passing, and an
+ * exact job id beats everything, because an id is only ever pasted when you
+ * know precisely which job you want.
+ */
+
+const SEARCH_FIELDS_RANKED = [
+  { key: 'jobId', weight: 100, exactOnly: true },
+  { key: 'company', weight: 40 },
+  { key: 'title', weight: 30 },
+  { key: 'location', weight: 12 },
+  { key: 'companyUrl', weight: 6 },
+  { key: 'description', weight: 3 }
+];
+
+function searchTerms(q) {
+  return String(q || '').toLowerCase().split(/\s+/).filter(Boolean);
+}
+
+/* -1 means "no match, drop it"; anything higher sorts first. */
+function searchScore(job, terms) {
+  if (!terms.length) return 0;
+
+  let total = 0;
+
+  for (let t = 0; t < terms.length; t++) {
+    const term = terms[t];
+    let best = 0;
+
+    for (let i = 0; i < SEARCH_FIELDS_RANKED.length; i++) {
+      const spec = SEARCH_FIELDS_RANKED[i];
+      const value = String(job[spec.key] == null ? '' : job[spec.key]).toLowerCase();
+      if (!value) continue;
+
+      if (spec.exactOnly) {
+        if (value === term) best = Math.max(best, spec.weight);
+        continue;
+      }
+
+      const at = value.indexOf(term);
+      if (at === -1) continue;
+
+      /* Whole field, then start of field, then anywhere: "acme" should find
+       * Acme CRO ahead of a posting that name-drops Acme in paragraph nine. */
+      let score = spec.weight;
+      if (value === term) score += spec.weight * 2;
+      else if (at === 0) score += spec.weight;
+      best = Math.max(best, score);
+    }
+
+    // Every term has to land somewhere, or this is not the job being looked for.
+    if (!best) return -1;
+    total += best;
+  }
+
+  return total;
+}
+
 function applyFilters(jobs, f) {
   const titleAny = splitList(f.titleAny);
   const titleNot = splitList(f.titleNot);
@@ -258,7 +325,12 @@ function applyFilters(jobs, f) {
   const maxYoe = f.maxYoe === '' ? null : Number(f.maxYoe);
   const maxTravel = f.maxTravel === '' ? null : Number(f.maxTravel);
 
+  const terms = searchTerms(f.q);
+
   return jobs.filter((j) => {
+    // The search is the cheapest way to eliminate a job, so it goes first.
+    if (terms.length && searchScore(j, terms) < 0) return false;
+
     /* An unknown is never a rejection - the rule every numeric filter below
      * already follows, and the one these two were quietly breaking.
      *
@@ -314,7 +386,7 @@ function applyFilters(jobs, f) {
 
 /* Sorting runs after filtering so the comparator only sees survivors. There is
  * no "by fit" mode: the panel does not rank jobs. */
-function sortJobs(jobs, mode) {
+function sortJobs(jobs, mode, terms) {
   const out = jobs.slice();
   const num = (v, fallback) => (v == null ? fallback : Number(v));
 
@@ -326,12 +398,20 @@ function sortJobs(jobs, mode) {
   } else if (mode === 'applicants') {
     out.sort((a, b) => num(a.applicants, 1e9) - num(b.applicants, 1e9));
   }
+
+  /* Relevance wins while a search is running - "the job I typed should be at
+   * the top" is the entire point of typing it. The chosen sort survives as
+   * the tiebreak, because the sort above has already been applied and this is
+   * a stable sort. */
+  if (terms && terms.length) {
+    out.sort((a, b) => searchScore(b, terms) - searchScore(a, terms));
+  }
   return out;
 }
 
 function currentFiltered() {
   const f = readFilters();
-  return sortJobs(applyFilters(JOBS, f), f.sort);
+  return sortJobs(applyFilters(JOBS, f), f.sort, searchTerms(f.q));
 }
 
 function selectedJobs(filtered) {
@@ -407,6 +487,13 @@ function filtersRemoving(f, jobs) {
  * used to leave completely unexplained: "0 of 12 collected" and an empty box,
  * with the filter doing it possibly behind the gear. Name it. */
 function emptyByFilterNote(f) {
+  /* The search is not behind the gear, but it is still the likeliest reason a
+   * list is empty, so it is named first and by name. */
+  if (searchTerms(f.q).length) {
+    return 'Nothing matches "' + String(f.q).trim() + '". It searches company, ' +
+      'title, location and job id — clear it to see all ' + JOBS.length + ' again.';
+  }
+
   const by = filtersRemoving(f);
   if (!by.length) {
     return 'All ' + JOBS.length + ' collected jobs are hidden, but no filter is set. ' +
@@ -588,11 +675,13 @@ function toCsv(jobs) {
 
 function render() {
   const f = readFilters();
-  const filtered = sortJobs(applyFilters(JOBS, f), f.sort);
+  const filtered = sortJobs(applyFilters(JOBS, f), f.sort, searchTerms(f.q));
   const selected = selectedJobs(filtered);
 
+  const searching = searchTerms(f.q).length > 0;
   $('resultCount').textContent =
-    filtered.length + ' of ' + JOBS.length + ' collected';
+    filtered.length + ' of ' + JOBS.length + ' collected' +
+    (searching ? ' · matching "' + f.q.trim() + '", best first' : '');
   $('selCount').textContent = selected.length + ' selected';
   renderFilterNote(f);
 
@@ -858,7 +947,11 @@ async function init() {
   /* ---- filters ---- */
 
   const onFilterChange = async () => {
-    await chrome.storage.local.set({ [FILTER_KEY]: readFilters() });
+    /* Everything except the search, which is deliberately transient - see the
+     * note on its own listener below. */
+    await chrome.storage.local.set({
+      [FILTER_KEY]: Object.assign({}, readFilters(), { q: '' })
+    });
     render();
   };
 
@@ -871,6 +964,20 @@ async function init() {
     'fJdNot', 'fCompanyNot', 'fMinChars'].forEach((id) => {
     $(id).addEventListener('change', onFilterChange);
     $(id).addEventListener('input', onFilterChange);
+  });
+
+  /* The search renders as you type but is NOT persisted: a saved search that
+   * silently narrows the list on next open is the same trap as a hidden
+   * filter, and this one would be reinstated before you had a reason for it. */
+  $('fSearch').addEventListener('input', render);
+  $('fSearch').addEventListener('search', render);
+  $('fSearch').addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { $('fSearch').value = ''; render(); }
+  });
+  $('btnSearchClear').addEventListener('click', () => {
+    $('fSearch').value = '';
+    $('fSearch').focus();
+    render();
   });
 
   $('btnResetFilters').addEventListener('click', async () => {

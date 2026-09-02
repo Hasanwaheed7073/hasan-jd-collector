@@ -397,3 +397,11 @@ button.ghost[aria-pressed="true"] {
   border-radius: 6px;
   background: rgba(255, 180, 84, .10);
 }
+
+/* The search over collected jobs. Full width because it is the control you
+   reach for when a vetting pass approves four jobs out of four hundred. */
+.searchrow { gap: 6px; }
+.searchrow input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+}
